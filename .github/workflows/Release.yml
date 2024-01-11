@@ -28,7 +28,7 @@ jobs:
       - name: Build xcframework
         run: |
           cd mieru-darwin-lib
-          make ios
+          make build-api-ios
           zip -ry ./build/Mieru.xcframework.zip ./build/Mieru.xcframework
           
       - name: Detect checksum
