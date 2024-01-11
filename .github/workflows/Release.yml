@@ -29,11 +29,11 @@ jobs:
         run: |
           cd mieru-darwin-lib
           make build-api-ios
-          zip -ry ./build/Mieru.xcframework.zip ./build/Mieru.xcframework
+          zip -ry ./Mieru.xcframework.zip ./Mieru.xcframework
           
       - name: Detect checksum
         run: |
-          export TEMP=`shasum -a 256 mieru-darwin-lib/build/Mieru.xcframework.zip`
+          export TEMP=`shasum -a 256 mieru-darwin-lib/Mieru.xcframework.zip`
           export CHECKSUM=${TEMP:0:64}
           echo "FILE_CHECKSUM=${CHECKSUM}" >> $GITHUB_ENV
           unset CHECKSUM
@@ -73,4 +73,4 @@ jobs:
         with:
           draft: false
           tag_name: ${{ github.event.inputs.version }}
-          files: mieru-darwin-lib/build/Mieru.xcframework.zip
+          files: mieru-darwin-lib/Mieru.xcframework.zip
